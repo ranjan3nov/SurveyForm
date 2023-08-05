@@ -16,69 +16,74 @@
 </head>
 
 <body>
+    <div class="container">
+        <div class="row justify-content-center align-items-center logo-row">
+            <div class="col-md-12 text-center">
+                <img src="logo.png" alt="Watermark Logo" class="logo" style="width: 200px;">
+            </div>
+        </div>
+        <!-- MultiStep Form -->
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <form id="msform">
+                    <!-- progressbar -->
+                    <ul id="progressbar">
+                        <li class="active">Personal Information</li>
+                        <li>Contact Information</li>
+                        <li>Occupation Details</li>
+                        <li>Address</li>
+                    </ul>
 
-    <!-- MultiStep Form -->
-    <div class="row">
-        <div class="col-md-6 col-md-offset-3">
-            <form id="msform">
-                <!-- progressbar -->
-                <ul id="progressbar">
-                    <li class="active">Personal Information</li>
-                    <li>Contact Information</li>
-                    <li>Occupation Details</li>
-                    <li>Address</li>
-                </ul>
+                    <fieldset>
+                        <h2 class="fs-title">Personal Information</h2>
+                        <!-- <h3 class="fs-subtitle">Your presence on the social network</h3> -->
+                        <label for="fname">First Name</label>
+                        <input type="text" id="fname" name="fName" placeholder="First Name" />
+                        <label for="lName">Last Name</label>
+                        <input type="text" id="lName" name="lName" placeholder="Last Name" />
+                        <label for="gender">Gender</label>
+                        <select class="form-input" id="gender">
+                            <option value="m">Male</option>
+                            <option value="f">Female</option>
+                            <option value="o" selected>Other</option>
+                        </select>
+                        <label for="mStatus">Marital Staus</label>
+                        <select class="form-input" id="mStatus">
+                            <option value="s">Single</option>
+                            <option value="m">Married</option>
+                            <option value="na" selected>Not To Disclose</option>
+                        </select>
+                        <label for="age">Age</label>
+                        <input type="number" name="nName" id="age" placeholder="Please Enter Your Age" />
+                        <input type="button" name="next" class="next action-button" value="Next" />
+                    </fieldset>
 
-                <fieldset>
-                    <h2 class="fs-title">Personal Information</h2>
-                    <!-- <h3 class="fs-subtitle">Your presence on the social network</h3> -->
-                    <label for="fname">First Name</label>
-                    <input type="text" id="fname" name="fName" placeholder="First Name" />
-                    <label for="lName">Last Name</label>
-                    <input type="text" id="lName" name="lName" placeholder="Last Name" />
-                    <label for="gender">Gender</label>
-                    <select class="form-input" id="gender">
-                        <option value="m">Male</option>
-                        <option value="f">Female</option>
-                        <option value="o" selected>Other</option>
-                    </select>
-                    <label for="mStatus">Marital Staus</label>
-                    <select class="form-input" id="mStatus">
-                        <option value="s">Single</option>
-                        <option value="m">Married</option>
-                        <option value="na" selected>Not To Disclose</option>
-                    </select>
-                    <label for="age">Age</label>
-                    <input type="number" name="nName" id="age" placeholder="Please Enter Your Age" />
-                    <input type="button" name="next" class="next action-button" value="Next" />
-                </fieldset>
+                    <fieldset>
+                        <h2 class="fs-title">Contact Information</h2>
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="Email" />
+                        <label for="phone">Phone Number</label>
+                        <input type="number" id="phone" name="phone" placeholder="Contact Number" />
+                        <label for="altPhone">Phone Number</label>
+                        <input type="number" id="altPhone" name="altPhone" placeholder="Alternative Contact" />
 
-                <fieldset>
-                    <h2 class="fs-title">Contact Information</h2>
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" placeholder="Email" />
-                    <label for="phone">Phone Number</label>
-                    <input type="number" id="phone" name="phone" placeholder="Contact Number" />
-                    <label for="altPhone">Phone Number</label>
-                    <input type="number" id="altPhone" name="altPhone" placeholder="Alternative Contact" />
+                        <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+                        <input type="button" name="next" class="next action-button" value="Next" />
+                    </fieldset>
 
-                    <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
-                    <input type="button" name="next" class="next action-button" value="Next" />
-                </fieldset>
+                    <fieldset>
+                        <h2 class="fs-title">Occupation Details</h2>
+                        <label for="jPosition">Jop Position</label>
+                        <input type="email" id="jPosition" name="jPosition" placeholder="Enter Your Job Position" />
+                        <label for="compName">Industry Where You Work</label>
+                        <input type="number" id="compName" name="compName" placeholder="Enter Your Comapany Name" />
 
-                <fieldset>
-                    <h2 class="fs-title">Occupation Details</h2>
-                    <label for="jPosition">Jop Position</label>
-                    <input type="email" id="jPosition" name="jPosition" placeholder="Enter Your Job Position" />
-                    <label for="compName">Industry Where You Work</label>
-                    <input type="number" id="compName" name="compName" placeholder="Enter Your Comapany Name" />
+                        <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+                        <input type="button" name="next" class="next action-button" value="Next" />
+                    </fieldset>
 
-                    <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
-                    <input type="button" name="next" class="next action-button" value="Next" />
-                </fieldset>
-
-                <!-- fieldsets -->
-                <!-- <fieldset>
+                    <!-- fieldsets -->
+                    <!-- <fieldset>
                     <h2 class="fs-title">General Information</h2>
                     <h3 class="fs-subtitle">Tell us something more about the project</h3>
                     <label for="fname">Project Title</label>
@@ -157,26 +162,27 @@
                     <input type="submit" name="submit" class="submit action-button" value="Submit" />
                 </fieldset> -->
 
-                <fieldset>
-                    <h2 class="fs-title">Address</h2>
+                    <fieldset>
+                        <h2 class="fs-title">Address</h2>
 
-                    <label for="oAddress">Office Address</label>
-                    <input type="text" id="oAddress" name="oAddress" placeholder="Present Location Line" />
+                        <label for="oAddress">Office Address</label>
+                        <input type="text" id="oAddress" name="oAddress" placeholder="Present Location Line" />
 
-                    <label for="zCode">Zip Code</label>
-                    <input type="text" id="zCode" name="zCode" placeholder="Zip Code" />
+                        <label for="zCode">Zip Code</label>
+                        <input type="text" id="zCode" name="zCode" placeholder="Zip Code" />
 
-                    <label for="oAddress">Permanent Address</label>
-                    <input type="text" id="pAddress" name="oAddress" placeholder="Permanent Location Line" />
+                        <label for="oAddress">Permanent Address</label>
+                        <input type="text" id="pAddress" name="oAddress" placeholder="Permanent Location Line" />
 
 
-                    <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
-                    <input type="submit" name="submit" class="submit action-button" value="Submit" />
-                </fieldset>
+                        <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+                        <input type="submit" name="submit" class="submit action-button" value="Submit" />
+                    </fieldset>
 
-            </form>
-            <!-- link to designify.me code snippets -->
-            <!-- /.link to designify.me code snippets -->
+                </form>
+                <!-- link to designify.me code snippets -->
+                <!-- /.link to designify.me code snippets -->
+            </div>
         </div>
     </div>
     <!-- /.MultiStep Form -->

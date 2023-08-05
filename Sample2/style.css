@@ -10,7 +10,6 @@
 html {
     height: 100%;
     background-color: #007991;
-    overflow-x: hidden;
     /* fallback for old browsers */
 
 }
@@ -18,13 +17,15 @@ html {
 body {
     font-family: montserrat, arial, verdana;
     background: transparent;
+    width: 100vw;
+    overflow-x: hidden;
 }
 
 /*form styles*/
 #msform {
     text-align: center;
     position: relative;
-    margin-top: 30px;
+    margin-top: 0px;
 }
 
 #msform fieldset {

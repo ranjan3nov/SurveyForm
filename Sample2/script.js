@@ -79,4 +79,21 @@ $(".previous").click(function () {
 
 $(".submit").click(function () {
     return false;
+    event.preventDefault();
+    let myForm = document.getElementById('msform');
+    let formData = new FormData(myForm);
+
+    $.ajax({
+        method: "POST",
+        url: 'test.php',
+        processData: false, // Prevent jQuery from processing the data
+        contentType: false, // Prevent jQuery from setting the content type
+        data: formData,
+        success: function (response) {
+            console.log(response);
+        },
+        error: function (xhr, status, error) {
+            console.error(xhr);
+        }
+    });
 })

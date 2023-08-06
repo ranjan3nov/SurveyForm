@@ -25,7 +25,7 @@
         <!-- MultiStep Form -->
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
-                <form id="msform">
+                <form id="msform" action="" method="post">
                     <!-- progressbar -->
                     <ul id="progressbar">
                         <li class="active">Personal Information</li>
@@ -51,11 +51,15 @@
                         <select class="form-input" id="mStatus">
                             <option value="s">Single</option>
                             <option value="m">Married</option>
+                            <option value="m">Widowed</option>
+                            <option value="m">Divorced</option>
+                            <option value="m">Separated</option>
                             <option value="na" selected>Not To Disclose</option>
                         </select>
                         <label for="age">Age</label>
                         <input type="number" name="nName" id="age" placeholder="Please Enter Your Age" />
                         <input type="button" name="next" class="next action-button" value="Next" />
+                        <!-- <input type="submit" name="submit" class="submit action-button" value="Submit" /> -->
                     </fieldset>
 
                     <fieldset>
@@ -64,8 +68,8 @@
                         <input type="email" id="email" name="email" placeholder="Email" />
                         <label for="phone">Phone Number</label>
                         <input type="number" id="phone" name="phone" placeholder="Contact Number" />
-                        <label for="altPhone">Phone Number</label>
-                        <input type="number" id="altPhone" name="altPhone" placeholder="Alternative Contact" />
+                        <label for="password">Create Password</label>
+                        <input type="password" id="password" name="password" placeholder="Create Password" />
 
                         <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
                         <input type="button" name="next" class="next action-button" value="Next" />
@@ -74,16 +78,18 @@
                     <fieldset>
                         <h2 class="fs-title">Occupation Details</h2>
                         <label for="jPosition">Jop Position</label>
-                        <input type="email" id="jPosition" name="jPosition" placeholder="Enter Your Job Position" />
-                        <label for="compName">Industry Where You Work</label>
-                        <input type="number" id="compName" name="compName" placeholder="Enter Your Comapany Name" />
+                        <input type="text" id="jPosition" name="jPosition" placeholder="Enter Your Job Position" />
+                        <label for="industry">Industry Where You Work</label>
+                        <input type="text" id="industry" name="industry" placeholder="Industry Where You Work" />
+                        <label for="hIncome">Household Income</label>
+                        <input type="text" id="hIncome" name="hIncome" placeholder="Household Income" />
+                        <label for="revenue">Revenue</label>
+                        <input type="text" id="revenue" name="revenue" placeholder="Revenue" />
 
                         <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
                         <input type="button" name="next" class="next action-button" value="Next" />
                     </fieldset>
 
-                    <!-- fieldsets -->
-                    <!-- <fieldset>
                     <h2 class="fs-title">General Information</h2>
                     <h3 class="fs-subtitle">Tell us something more about the project</h3>
                     <label for="fname">Project Title</label>
@@ -131,49 +137,51 @@
                         </div>
                     </div>
                     <input type="button" name="next" class="next action-button" value="Next" />
-                </fieldset>
+                    </fieldset>
 
-                <fieldset>
-                    <h2 class="fs-title">TRIP Information</h2>
-                    <h3 class="fs-subtitle">Your presence on the social network</h3>
-                    <input type="text" name="twitter" placeholder="Twitter" />
-                    <input type="text" name="facebook" placeholder="Facebook" />
-                    <input type="text" name="gplus" placeholder="Google Plus" />
-                    <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
-                    <input type="button" name="next" class="next action-button" value="Next" />
-                </fieldset>
+                    <fieldset>
+                        <h2 class="fs-title">TRIP Information</h2>
+                        <h3 class="fs-subtitle">Your presence on the social network</h3>
+                        <input type="text" name="twitter" placeholder="Twitter" />
+                        <input type="text" name="facebook" placeholder="Facebook" />
+                        <input type="text" name="gplus" placeholder="Google Plus" />
+                        <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+                        <input type="button" name="next" class="next action-button" value="Next" />
+                    </fieldset>
 
-                <fieldset>
-                    <h2 class="fs-title">Physical and Financial Status</h2>
-                    <h3 class="fs-subtitle">Your presence on the social network</h3>
-                    <input type="text" name="twitter" placeholder="Twitter" />
-                    <input type="text" name="facebook" placeholder="Facebook" />
-                    <input type="text" name="gplus" placeholder="Google Plus" />
-                    <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
-                    <input type="button" name="next" class="next action-button" value="Next" />
-                </fieldset>
+                    <fieldset>
+                        <h2 class="fs-title">Physical and Financial Status</h2>
+                        <h3 class="fs-subtitle">Your presence on the social network</h3>
+                        <input type="text" name="twitter" placeholder="Twitter" />
+                        <input type="text" name="facebook" placeholder="Facebook" />
+                        <input type="text" name="gplus" placeholder="Google Plus" />
+                        <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+                        <input type="button" name="next" class="next action-button" value="Next" />
+                    </fieldset>
 
-                <fieldset>
-                    <h2 class="fs-title">Submit project</h2>
-                    <h3 class="fs-subtitle">Fill in your credentials to authorize submission</h3>
-                    <input type="text" name="email" placeholder="Username" />
-                    <input type="password" name="pass" placeholder="Password" />
-                    <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
-                    <input type="submit" name="submit" class="submit action-button" value="Submit" />
-                </fieldset> -->
+                    <fieldset>
+                        <h2 class="fs-title">Submit project</h2>
+                        <h3 class="fs-subtitle">Fill in your credentials to authorize submission</h3>
+                        <input type="text" name="email" placeholder="Username" />
+                        <input type="password" name="pass" placeholder="Password" />
+                        <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+                        <input type="submit" name="submit" class="submit action-button" value="Submit" />
+                    </fieldset> -->
 
                     <fieldset>
                         <h2 class="fs-title">Address</h2>
 
                         <label for="oAddress">Office Address</label>
-                        <input type="text" id="oAddress" name="oAddress" placeholder="Present Location Line" />
+                        <input type="text" id="oAddress" name="oAddress" placeholder="Present Location" />
 
-                        <label for="zCode">Zip Code</label>
-                        <input type="text" id="zCode" name="zCode" placeholder="Zip Code" />
+                        <label for="oZipCode">Zip Code</label>
+                        <input type="text" id="oZipCode" name="oZipCode" placeholder="Zip Code" />
 
                         <label for="oAddress">Permanent Address</label>
-                        <input type="text" id="pAddress" name="oAddress" placeholder="Permanent Location Line" />
+                        <input type="text" id="pAddress" name="oAddress" placeholder="Permanent Location" />
 
+                        <label for="pZipCode">Zip Code</label>
+                        <input type="text" id="pZipCode" name="pZipCode" placeholder="Zip Code" />
 
                         <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
                         <input type="submit" name="submit" class="submit action-button" value="Submit" />

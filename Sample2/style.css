@@ -224,3 +224,35 @@ body {
     background: #C5C5F1;
     text-decoration: none;
 }
+
+/* copyright */
+.fs-copyrigt {
+    font-weight: 600;
+    font-size: 13px;
+    color: white;
+    margin: 20px 0px;
+}
+
+.fs-copyrigt a {
+    color: white;
+    text-decoration: none;
+}
+
+.fs-copyrigt a:hover {
+    color: #FF8C00;
+    font-family: bold;
+}
+
+.copyright-row {
+    position: absolute;
+    bottom: -250px;
+    width: 100%;
+    padding: 10px 0;
+}
+
+@media screen and (max-width:500px) {
+    .copyright-row {
+        bottom: -300px;
+        text-align: center;
+    }
+}

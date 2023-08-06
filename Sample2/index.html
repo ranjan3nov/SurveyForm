@@ -37,7 +37,6 @@
 
                     <fieldset>
                         <h2 class="fs-title">Personal Information</h2>
-                        <!-- <h3 class="fs-subtitle">Read Terms and Policy <a href="google.com">Terms</a></h3> -->
                         <label for="fname">First Name</label>
                         <input type="text" id="fname" name="fName" placeholder="First Name" />
                         <label for="lName">Last Name</label>
@@ -67,22 +66,11 @@
                         <h2 class="fs-title">Contact Information</h2>
                         <label for="email">Email</label>
                         <input type="email" id="email" name="email" placeholder="Email" />
-                        <!--<label for="email">Country Code</label>
-                         <select class="form-input" id="mStatus">
-                                    <option value="s">India (+91)</option>
-                                    <option value="s">India (+91)</option>
-                                    <option value="s">India (+91)</option>
-                                </select>
-                    -->
-
                         <label for="phone">Phone Number</label>
                         <div class="input-group">
                             <div class="input-group-btn">
                                 <select class="form-control" id="countryCode"
                                     style="min-height: 51px; min-width: 100px;">
-                                    <option value="+1">+1 (United States)</option>
-                                    <option value="+44">+44 (United Kingdom)</option>
-                                    <option value="+91">+91 (India)</option>
                                 </select>
                             </div>
                             <input type="number" id="phone" name="phone" placeholder="Contact Number" />
@@ -123,7 +111,8 @@
                         <h2 class="fs-title">Address</h2>
 
                         <label for="country">Country Name</label>
-                        <input type="text" id="country" name="country" placeholder="Entery Your Country Name" />
+                        <select class="form-input" id="country">
+                        </select>
 
                         <label for="oAddress">Office Address</label>
                         <input type="text" id="oAddress" name="oAddress" placeholder="Present Location" />
@@ -157,10 +146,39 @@
             </div>
         </div>
     </div>
-    <!-- /.MultiStep Form -->
     <!-- maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js -->
     <script src="asset/js/bootstrap.min.js"></script>
     <script src="script.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", async function () {
+            const countryCodeElement = document.getElementById('countryCode');
+            try {
+                const response = await fetch('asset/data/data.json');
+                const countryData = await response.json();
+                countryData.forEach(country => {
+                    const option = document.createElement('option');
+                    option.value = country.code;
+                    option.textContent = country.code;
+                    countryCodeElement.appendChild(option);
+                });
+            } catch (error) {
+                console.error('Error loading or parsing JSON:', error);
+            }
+            const countryNameElement = document.getElementById('country');
+            try {
+                const response = await fetch('asset/data/data.json');
+                const countryData = await response.json();
+                countryData.forEach(country => {
+                    const option = document.createElement('option');
+                    option.value = country.code;
+                    option.textContent = country.name;
+                    countryNameElement.appendChild(option);
+                });
+            } catch (error) {
+                console.error('Error loading or parsing JSON:', error);
+            }
+        });
+    </script>
 </body>
 
 </html

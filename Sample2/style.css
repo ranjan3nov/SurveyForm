@@ -256,3 +256,14 @@ body {
         text-align: center;
     }
 }
+/* checkbox input */
+
+.checkBox{
+    text-align: left;
+    font-weight: normal;
+    display: inline-block;
+}
+.checkBox input{
+    width: auto !important;
+    vertical-align: middle; 
+}

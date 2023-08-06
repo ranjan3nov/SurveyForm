@@ -77,26 +77,7 @@ $(".previous").click(function () {
     });
 });
 
-$(".submit").click(function () {
-    return false;
-    event.preventDefault();
-    let myForm = document.getElementById('msform');
-    let formData = new FormData(myForm);
-
-    $.ajax({
-        method: "POST",
-        url: 'test.php',
-        processData: false, // Prevent jQuery from processing the data
-        contentType: false, // Prevent jQuery from setting the content type
-        data: formData,
-        success: function (response) {
-            console.log(response);
-        },
-        error: function (xhr, status, error) {
-            console.error(xhr);
-        }
-    });
-})
+// password toggler
 $(document).ready(function () {
     $(".toggle-password").click(function () {
         var passwordInput = $("#password");
@@ -109,5 +90,47 @@ $(document).ready(function () {
             passwordInput.attr("type", "password");
             icon.removeClass("fa-eye").addClass("fa-eye-slash");
         }
+    });
+});
+
+// Country Name And Dial Code
+document.addEventListener("DOMContentLoaded", async function () {
+    // Fetch Country Dial Code
+    const countryCodeElement = document.getElementById('countryCode');
+    try {
+        const response = await fetch('asset/data/data.json');
+        const countryData = await response.json();
+        countryData.forEach(country => {
+            const option = document.createElement('option');
+            option.value = country.code;
+            option.textContent = country.code;
+            countryCodeElement.appendChild(option);
+        });
+    } catch (error) {
+        console.error('Error loading or parsing JSON:', error);
+    }
+    // Fetch Country Name
+    const countryNameElement = document.getElementById('country');
+    try {
+        const response = await fetch('asset/data/data.json');
+        const countryData = await response.json();
+        countryData.forEach(country => {
+            const option = document.createElement('option');
+            option.value = country.code;
+            option.textContent = country.name;
+            countryNameElement.appendChild(option);
+        });
+    } catch (error) {
+        console.error('Error loading or parsing JSON:', error);
+    }
+    // allow next only if all the check box are clicked
+    const checkboxes = document.querySelectorAll('.checkBox input[type="checkbox"]');
+    const submitButton = document.getElementById('checkTermsButton');
+
+    checkboxes.forEach(function (checkbox) {
+        checkbox.addEventListener('change', function () {
+            const allChecked = Array.from(checkboxes).every(checkbox => checkbox.checked);
+            submitButton.disabled = !allChecked;
+        });
     });
 });

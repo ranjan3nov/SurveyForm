@@ -26,7 +26,7 @@
         <!-- MultiStep Form -->
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
-                <form id="msform" action="" method="post">
+                <form id="msform" action="test.php" method="POST">
                     <!-- progressbar -->
                     <ul id="progressbar">
                         <li class="active">Personal Information</li>
@@ -34,7 +34,39 @@
                         <li>Occupation Details</li>
                         <li>Address</li>
                     </ul>
+                    <fieldset>
+                        <h2 class="fs-title">Terms and Conditions</h2>
+                        <label class="checkBox">
+                            <input class="" type="checkbox" required="required" aria-required="true">
+                            Yes, I have read and understand the
+                            <a class="corp-blue" target="_blank" href="privacy.html"><strong> Panel Privacy Policy
+                                </strong></a>
 
+                        </label>
+                        <label class="checkBox">
+                            <input class="" type="checkbox" required="required" aria-required="true">
+                            Yes, I have read and understand the
+                            <a class="corp-blue" target="_blank" href="terms-of-service.html"><strong> Membership Terms
+                                    &amp;
+                                    Conditions
+                                </strong></a>
+                        </label>
+                        <label class="checkBox">
+                            <input class="" type="checkbox" required="required" aria-required="true">
+                            Yes, I have read and understand the
+                            <a class="corp-blue" target="_blank" href="terms-rewards.html"><strong> Rewards Program
+                                    Terms
+                                </strong></a>
+                        </label>
+                        <label class="checkBox">
+                            <input class="" type="checkbox" required="required" aria-required="true" />
+                            Yes, I agree to be contacted by Lightspeed and Infosecmarketinsights about updates, services and
+                            offers.
+                            We promise no third parties will contact you
+                        </label>
+                        <input type="button" name="next" id="checkTermsButton" class="next action-button" value="Next"
+                            disabled />
+                    </fieldset>
                     <fieldset>
                         <h2 class="fs-title">Personal Information</h2>
                         <label for="fname">First Name</label>
@@ -127,7 +159,7 @@
                         <input type="text" id="pZipCode" name="pZipCode" placeholder="Zip Code" />
 
                         <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
-                        <input type="submit" name="submit" class="submit action-button" value="Submit" />
+                        <input type="submit" name="submit" class="submit action-button" />
                     </fieldset>
                 </form>
             </div>
@@ -149,36 +181,6 @@
     <!-- maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js -->
     <script src="asset/js/bootstrap.min.js"></script>
     <script src="script.js"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", async function () {
-            const countryCodeElement = document.getElementById('countryCode');
-            try {
-                const response = await fetch('asset/data/data.json');
-                const countryData = await response.json();
-                countryData.forEach(country => {
-                    const option = document.createElement('option');
-                    option.value = country.code;
-                    option.textContent = country.code;
-                    countryCodeElement.appendChild(option);
-                });
-            } catch (error) {
-                console.error('Error loading or parsing JSON:', error);
-            }
-            const countryNameElement = document.getElementById('country');
-            try {
-                const response = await fetch('asset/data/data.json');
-                const countryData = await response.json();
-                countryData.forEach(country => {
-                    const option = document.createElement('option');
-                    option.value = country.code;
-                    option.textContent = country.name;
-                    countryNameElement.appendChild(option);
-                });
-            } catch (error) {
-                console.error('Error loading or parsing JSON:', error);
-            }
-        });
-    </script>
 </body>
 
 </html

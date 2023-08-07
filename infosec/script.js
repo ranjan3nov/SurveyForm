@@ -1,11 +1,9 @@
-
-//jQuery time
 var current_fs, next_fs, previous_fs; //fieldsets
 var left, opacity, scale; //fieldset properties which we will animate
 var animating; //flag to prevent quick multi-click glitches
 
 $(".next").click(function () {
-    if (animating) return false;
+    if (animating || !validateFieldset($(this).parent())) return false;
     animating = true;
 
     current_fs = $(this).parent();
@@ -77,8 +75,44 @@ $(".previous").click(function () {
     });
 });
 
-// password toggler
+function validateFieldset(fieldset) {
+
+    var isValid = true;
+    var inputs = fieldset.find('input[required], select[required]');
+
+    var warningMessage = fieldset.find(".fs-warning");
+
+    inputs.each(function () {
+        if (!$(this).val().trim()) {
+            warningMessage.show();
+
+            isValid = false;
+            return false; // exit the loop early
+        }
+    });
+
+    if (isValid) {
+        warningMessage.hide();
+    }
+
+    return isValid;
+}
+
+// Checkbox validation
+const checkboxGroups = document.querySelectorAll('.checkBox input[type="checkbox"]');
+const submitButton = document.getElementById('checkTermsButton');
+checkboxGroups.forEach(function (checkbox) {
+    checkbox.addEventListener('change', function () {
+        const allChecked = Array.from(checkboxGroups).every(checkbox => checkbox.checked);
+        submitButton.disabled = !allChecked;
+    });
+});
+
+
+
 $(document).ready(function () {
+
+    // password toggler
     $(".toggle-password").click(function () {
         var passwordInput = $("#password");
         var icon = $(this).find("i");
@@ -123,14 +157,4 @@ document.addEventListener("DOMContentLoaded", async function () {
     } catch (error) {
         console.error('Error loading or parsing JSON:', error);
     }
-    // allow next only if all the check box are clicked
-    const checkboxes = document.querySelectorAll('.checkBox input[type="checkbox"]');
-    const submitButton = document.getElementById('checkTermsButton');
-
-    checkboxes.forEach(function (checkbox) {
-        checkbox.addEventListener('change', function () {
-            const allChecked = Array.from(checkboxes).every(checkbox => checkbox.checked);
-            submitButton.disabled = !allChecked;
-        });
-    });
 });

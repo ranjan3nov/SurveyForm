@@ -2,18 +2,7 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Infosecmarketinsights | Survey</title>
-    <!-- "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"  -->
-    <link rel="stylesheet" href="asset/css/bootstrap.min.css">
-    <!-- Font Awesome CDN -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="style.css">
-    <!-- /cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js -->
-    <script src="asset/js/jquery.min.js"></script>
-    <!-- cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js -->
-    <script src="asset/js/jquery.easing.min.js"></script>
+    <?php include_once('partials/head.php'); ?>
 </head>
 
 <body>
@@ -37,53 +26,48 @@
                     </ul>
                     <fieldset>
                         <h2 class="fs-title">Terms and Conditions</h2>
+                        <h3 id="termsWarning">All Terms & Condition are required </h3>
                         <label class="checkBox">
-                            <input name="checkBox1" type="checkbox" required="required" aria-required="true">
+                            <input name="checkBox1" type="checkbox" required>
                             Yes, I have read and understand the
-                            <a class="corp-blue" target="_blank" href="privacy.html"><strong> Panel Privacy Policy
-                                </strong></a>
-
-                        </label>
-                        <label class="checkBox">
-                            <input name="checkBox2" type="checkbox" required="required" aria-required="true">
-                            Yes, I have read and understand the
-                            <a class="corp-blue" target="_blank" href="terms-of-service.html"><strong> Membership Terms
-                                    &amp;
-                                    Conditions
+                            <a class="corp-blue" target="_blank" href="privacy.php"><strong>Privacy Policy
                                 </strong></a>
                         </label>
                         <label class="checkBox">
-                            <input name="checkBox3" type="checkbox" required="required" aria-required="true">
+                            <input name="checkBox2" type="checkbox" required>
                             Yes, I have read and understand the
-                            <a class="corp-blue" target="_blank" href="terms-rewards.html"><strong> Rewards Program
-                                    Terms
+                            <a class="corp-blue" target="_blank" href="terms-of-service.php"><strong> Membership Terms & Conditions
                                 </strong></a>
                         </label>
                         <label class="checkBox">
-                            <input name="checkBox4" type="checkbox" required="required" aria-required="true" />
-                            Yes, I agree to be contacted by Lightspeed and Infosecmarketinsights about updates, services
-                            and
-                            offers.
+                            <input name="checkBox3" type="checkbox" required>
+                            Yes, I have read and understand the
+                            <a class="corp-blue" target="_blank" href="terms-rewards.php"><strong> Rewards Program Terms
+                                </strong></a>
+                        </label>
+                        <label class="checkBox">
+                            <input name="checkBox4" type="checkbox" required>
+                            Yes, I agree to be contacted by Infosecmarketinsights about updates, services, and offers.
                             We promise no third parties will contact you
                         </label>
-                        <input type="button" name="next" id="checkTermsButton" class="next action-button" value="Next"
-                            disabled />
+                        <input type="button" name="next" id="checkTermsButton" class="next action-button" value="Next" disabled />
                     </fieldset>
 
                     <fieldset>
                         <h2 class="fs-title">Personal Information</h2>
+                        <h3 class="fs-warning">*All Fields are required</h3>
                         <label for="fname">First Name</label>
-                        <input type="text" id="fname" name="fName" placeholder="First Name" />
+                        <input type="text" id="fname" name="fName" placeholder="First Name" required />
                         <label for="lName">Last Name</label>
-                        <input type="text" id="lName" name="lName" placeholder="Last Name" />
+                        <input type="text" id="lName" name="lName" placeholder="Last Name" required />
                         <label for="gender">Gender</label>
-                        <select name="gender" class="form-input" id="gender">
+                        <select name="gender" class="form-input" id="gender" required>
                             <option value="m">Male</option>
                             <option value="f">Female</option>
                             <option value="o" selected>Other</option>
                         </select>
-                        <label for="mStatus">Marital Staus</label>
-                        <select name="maritalStatus" class="form-input" id="mStatus">
+                        <label for="mStatus">Marital Status</label>
+                        <select name="maritalStatus" class="form-input" id="mStatus" required>
                             <option value="single">Single</option>
                             <option value="married">Married</option>
                             <option value="widowed">Widowed</option>
@@ -92,30 +76,29 @@
                             <option value="na" selected>Not To Disclose</option>
                         </select>
                         <label for="age">Age</label>
-                        <input type="number" name="age" id="age" placeholder="Please Enter Your Age" />
+                        <input type="number" name="age" id="age" placeholder="Please Enter Your Age" required />
                         <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
                         <input type="button" name="next" class="next action-button" value="Next" />
                     </fieldset>
 
                     <fieldset>
                         <h2 class="fs-title">Contact Information</h2>
+                        <h3 class="fs-warning">*All Fields are required</h3>
                         <label for="email">Email</label>
-                        <input type="email" id="email" name="email" placeholder="Email" />
+                        <input type="email" id="email" name="email" placeholder="Email" required />
                         <label for="phone">Phone Number</label>
                         <div class="input-group">
                             <div class="input-group-btn">
-                                <select class="form-control" id="countryCode"
-                                    style="min-height: 51px; min-width: 100px;">
+                                <select class="form-control" id="countryCode" style="min-height: 51px; min-width: 100px;" name="dialCode" required>
                                 </select>
                             </div>
-                            <input type="number" id="phone" name="phone" placeholder="Contact Number" />
+                            <input type="number" id="phone" name="phone" placeholder="Contact Number" required />
                         </div>
                         <label for="password">Create Password</label>
                         <div class="input-group">
-                            <input type="password" id="password" name="password" placeholder="Create Password" />
+                            <input type="password" id="password" name="password" placeholder="Create Password" required />
                             <span class="input-group-btn">
-                                <button class="btn btn-default toggle-password" type="button"
-                                    style="min-height: 50px; margin-top: -10px;">
+                                <button class="btn btn-default toggle-password" type="button" style="min-height: 50px; margin-top: -10px;">
                                     <i class='fa fa-eye-slash'></i>
                                 </button>
                             </span>
@@ -126,34 +109,31 @@
 
                     <fieldset>
                         <h2 class="fs-title">Occupation Details</h2>
-                        <label for="jPosition">Jop Position</label>
-                        <input type="text" id="jPosition" name="jPosition" placeholder="Enter Your Job Position" />
+                        <h3 class="fs-warning">*All Fields are required</h3>
+                        <label for="jPosition">Job Position</label>
+                        <input type="text" id="jPosition" name="jPosition" placeholder="Enter Your Job Position" required />
                         <label for="industry">Industry Where You Work</label>
-                        <input type="text" id="industry" name="industry" placeholder="Industry Where You Work" />
+                        <input type="text" id="industry" name="industry" placeholder="Industry Where You Work" required />
                         <label for="hIncome">Household Income</label>
-                        <input type="text" id="hIncome" name="hIncome" placeholder="Household Income" />
+                        <input type="text" id="hIncome" name="hIncome" placeholder="Household Income" required />
                         <label for="revenue">Company Last Year Revenue</label>
-                        <input type="text" id="revenue" name="revenue" placeholder="Company LRevenue" />
-
+                        <input type="text" id="revenue" name="revenue" placeholder="Company Revenue" required />
                         <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
                         <input type="button" name="next" class="next action-button" value="Next" />
                     </fieldset>
+
                     <fieldset>
                         <h2 class="fs-title">Address</h2>
-
+                        <h3 class="fs-warning">*All Fields are required</h3>
                         <label for="country">Country Name</label>
-                        <select class="form-input" id="country" name="country">
+                        <select class="form-input" id="country" name="country" required>
                         </select>
-
                         <label for="state">State</label>
-                        <input type="text" id="state" name="state" placeholder="Enter Your State" />
-
-                        <label for="pAddress"> Address</label>
-                        <input type="text" id="pAddress" name="pAddress" placeholder="Permanent Location" />
-
+                        <input type="text" id="state" name="state" placeholder="Enter Your State" required />
+                        <label for="pAddress">Address</label>
+                        <input type="text" id="pAddress" name="pAddress" placeholder="Permanent Location" required />
                         <label for="pZipCode">Zip Code</label>
-                        <input type="text" id="pZipCode" name="pZipCode" placeholder="Zip Code" />
-
+                        <input type="text" id="pZipCode" name="pZipCode" placeholder="Zip Code" required />
                         <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
                         <input type="submit" name="submit" class="submit action-button" />
                     </fieldset>
@@ -164,9 +144,9 @@
         <div class="row justify-content-center align-items-center copyright-row ">
             <div class="col-md-6 text-center">
                 <p class="fs-copyrigt">
-                    <a href="#">Panel Privacy Policy</a> |
-                    <a href="#">Membership </a> |
-                    <a href="#">Reward Programs Terms & Condition</a>
+                    <a href="privacy.php">Privacy Policy</a> |
+                    <a href="terms-of-service.php">Membership </a> |
+                    <a href="terms-rewards.php">Reward Programs Terms & Condition</a>
                 </p>
             </div>
             <div class="col-md-6">
